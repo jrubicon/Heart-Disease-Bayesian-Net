@@ -1,4 +1,4 @@
-# Heart-Disease-Baysian-Net
+# Heart-Disease-Bayesian-Net
 Heart Disease Baysian Network
 
 Group:
