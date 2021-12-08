@@ -1,5 +1,5 @@
 # Heart-Disease-Bayesian-Net
-Heart Disease Baysian Network
+Heart Disease Bayesian Network
 
 Group:
  - Phong Nguyen
