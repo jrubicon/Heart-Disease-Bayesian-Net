@@ -7,8 +7,6 @@ def dataImport():
 def modelcreator(df):
     from pgmpy.models import BayesianModel
     from pgmpy.estimators import MaximumLikelihoodEstimator, BayesianEstimator
-    #model = BayesianModel([('target','cp'),('target','thalach'),('target','slope'),('target','restecg'),
-    #('cp','thalach'),('cp','slope'),('cp','restecg'),('thalach','slope'),('thalach','restecg'),('slope','restecg')])
     model = BayesianModel([('target','cp'),('target','thalach'),('target','slope'),('target','restecg')])
     model.fit(df, estimator=BayesianEstimator)
     return model
@@ -30,7 +28,6 @@ def interface(model, df):
     thalachuniq = df.thalach.unique()
     slopeuniq = df.slope.unique()
     restecguniq = df.restecg.unique()
-
     while cont == 'y' or cont == 'Y':
         for (i, item) in enumerate(options, start=1):
             if i in visited:
@@ -125,8 +122,6 @@ def query(model, vals):
         print(HeartDisease_infer.query(['target'], evidence={ vals[0][0]: vals[0][1], vals[1][0]: vals[1][1], vals[2][0]: vals[2][1], vals[3][0]: vals[3][1] }))
     else:
         print("ERROR")
-        #print(HeartDisease_infer.map_query(['target'], evidence={'thalach': 190, 'cp': 1}))
-        #print(HeartDisease_infer.query(['target'], evidence={'thalach': 202, 'cp': 1}))
 
 
 def main():
@@ -139,7 +134,6 @@ def main():
     print("Model Nodes = ", model.nodes())
     print("Model Edges = ", model.edges())
     print(model.get_independencies(),"\n")
-
     cont = 'n'
     while cont == 'n' or cont == 'N':
         interface(model, df)
