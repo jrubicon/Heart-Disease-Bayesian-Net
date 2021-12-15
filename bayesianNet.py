@@ -126,11 +126,11 @@ def query(model, vals):
 
 def main():
     logo()
+    print("LOADING EDGES AND INDEPENDENCIES...\n")
     #import data
     df = dataImport()
     #create model
     model = modelcreator(df)
-    print("LOADING EDGES AND INDEPENDENCIES...\n")
     print("Model Nodes = ", model.nodes())
     print("Model Edges = ", model.edges())
     print(model.get_independencies(),"\n")
